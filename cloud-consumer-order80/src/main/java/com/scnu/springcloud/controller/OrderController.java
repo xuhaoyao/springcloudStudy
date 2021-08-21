@@ -46,6 +46,7 @@ public class OrderController {
         return restTemplate.getForObject(PAYMENT_URL + "/payment/get/" + id,CommonResult.class);
     }
 
+    //负载均衡算法:rest接口第几次请求数 % 服务器集群总数量 = 实际调用服务器位置下标
     @GetMapping("/consumer/payment/lb")
     public String myLb(){
         List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
