@@ -1,0 +1,27 @@
+server:
+  port: 3366
+
+spring:
+  application:
+    name: cloud-config-client
+
+  rabbitmq:
+    host: 192.168.200.130
+    username: admin
+    password: 123
+    port: 5672
+
+  cloud:
+    #config客户端配置
+    config:
+      label: master  #分支名称
+      name: config   #配置文件名称
+      profile: dev   #读取后缀名称  -> master分支上的 config-dev.yml
+      uri: http://localhost:3344
+
+management:
+  endpoints:
+    web:
+      exposure:
+        #暴露监控
+        include: "refresh"
