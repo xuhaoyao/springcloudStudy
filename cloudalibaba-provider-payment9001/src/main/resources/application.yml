@@ -1,0 +1,17 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: nacos-payment-provider
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848   #注意:这里前面不用带http://,不然会报错
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
